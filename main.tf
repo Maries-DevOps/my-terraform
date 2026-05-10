@@ -8,7 +8,7 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-east-1" # Make sure this matches your GitHub Secret region
+  region = "ap-south-1"
 }
 
 data "aws_ami" "amazon_linux_2023" {
@@ -22,7 +22,7 @@ data "aws_ami" "amazon_linux_2023" {
 
 resource "aws_instance" "my_first_server" {
   ami           = data.aws_ami.amazon_linux_2023.id
-  instance_type = "t2.micro" # This is usually Free Tier eligible
+  instance_type = "t2.micro"
 
   tags = {
     Name = "Terraform-Learning-Server"
